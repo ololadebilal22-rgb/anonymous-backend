@@ -35,3 +35,13 @@ io.on('connection', async (socket) => {
 http.listen(3000, () => {
   console.log('Server is running live on port 3000 with Database');
 });
+const corsOptions = {
+  origin: [
+    "https://anonymous-frontend-eight.vercel.app", // Your new Vercel URL
+    "http://localhost:3000" // Keep this for local testing
+  ],
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true,
+};
+
+app.use(cors(corsOptions));
